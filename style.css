@@ -1,0 +1,127 @@
+/* ---------- Grundwerte ---------- */
+:root {
+  color-scheme: only light;
+  --green-deep: #0B3D2E;
+  --green-mid:  #0F5A43;
+  --gold:       #CDB68A;
+  --gold-line:  #B39A6A;
+  --gold-text:  #7A623E;
+  --beige:      #F6F2EB;
+  --beige-dark: #EFE9DE;
+  --ink:        #24312B;
+  --ink-soft:   #4A5750;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans:  "Jost", system-ui, sans-serif;
+  --pad:   clamp(20px, 7vw, 100px);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--beige); color: var(--ink); font: 300 1.0625rem/1.65 var(--sans); }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p, blockquote { margin: 0; }
+:focus-visible { outline: 3px solid var(--gold-line); outline-offset: 3px; }
+
+.btn { display: inline-block; padding: 14px 32px; border-radius: 999px; font-weight: 400; transition: background-color .2s; }
+.btn-dark { background: var(--green-deep); color: #fff; }
+.btn-dark:hover { background: var(--green-mid); }
+.btn-gold { background: var(--gold); color: var(--green-deep); }
+.btn-gold:hover { background: #E0CDA6; }
+
+.eyebrow { color: var(--gold); font-weight: 400; font-size: .85rem; letter-spacing: .18em; text-transform: uppercase; }
+.eyebrow.dark { color: var(--gold-text); }
+.section-head { max-width: 40rem; margin-bottom: 44px; }
+.section-head h2 { margin-top: 14px; font: 400 clamp(2.2rem, 4vw, 3.1rem)/1.1 var(--serif); color: var(--green-deep); }
+
+/* ---------- Kopfzeile ---------- */
+.site-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px; padding: 14px var(--pad); background: var(--beige); }
+.logo { display: flex; align-items: center; gap: 12px; font: 500 1.75rem/1 var(--serif); letter-spacing: .12em; text-transform: uppercase; color: var(--green-deep); }
+.logo svg { color: var(--gold-line); }
+.main-nav { display: flex; flex-wrap: wrap; gap: 8px 30px; font-size: 1rem; font-weight: 400; }
+.main-nav a { padding: 14px 0 6px; border-bottom: 2px solid transparent; }
+.main-nav a:hover { border-color: var(--gold-line); }
+.main-nav a[aria-current="page"] { border-color: var(--green-deep); }
+
+/* ---------- Einstieg ---------- */
+.hero {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: end;
+  padding: 72px var(--pad) 0; min-height: 460px;
+  background-color: var(--green-deep);
+  background-image: radial-gradient(circle at 0% 25%, rgba(120,190,150,.18), transparent 38%), radial-gradient(circle at 100% 100%, rgba(120,190,150,.15), transparent 30%);
+  color: #fff;
+}
+.hero-text { align-self: center; padding-bottom: 72px; }
+.hero h1 { margin: 20px 0 24px; font: 400 clamp(2.4rem, 4.6vw, 3.75rem)/1.08 var(--serif); color: var(--beige); }
+.lead { max-width: 30em; margin-bottom: 32px; font-size: 1.125rem; }
+.arch { width: 100%; max-width: 480px; height: 420px; justify-self: center; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; border-radius: 240px 240px 0 0; background: linear-gradient(170deg, #EFE6D3, #D8C7A4); }
+.arch-inner { width: 78%; height: 86%; border-radius: 190px 190px 0 0; background: linear-gradient(180deg, #DCE9EE, #F3EEE2) center / cover no-repeat; /* background-image: url("portrait.jpg"); */ }
+
+/* ---------- Geschichte ---------- */
+.story { padding: 80px var(--pad) 40px; }
+.story-text { max-width: 44rem; columns: 2; column-gap: 48px; color: var(--ink-soft); }
+.story-text p { margin-bottom: 1em; break-inside: avoid; }
+
+/* ---------- Werdegang ---------- */
+.path { padding: 40px var(--pad) 80px; }
+.timeline { list-style: none; margin: 0; padding: 0 0 0 24px; max-width: 46rem; border-left: 1px solid var(--gold-line); }
+.timeline li { position: relative; display: grid; grid-template-columns: 6rem 1fr; gap: 20px; padding: 0 0 36px 28px; }
+.timeline li::before { content: ""; position: absolute; left: -32px; top: .55em; width: 15px; height: 15px; border-radius: 50%; background: var(--beige); border: 2px solid var(--gold-line); }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li:last-child::before { background: var(--gold-line); }
+.year { font: 500 1.5rem/1.3 var(--serif); color: var(--gold-text); }
+.timeline h3 { font: 500 1.6rem/1.2 var(--serif); color: var(--green-deep); margin-bottom: 4px; }
+.timeline p { color: var(--ink-soft); }
+
+/* ---------- Haltung ---------- */
+.values-dark { padding: 80px var(--pad); background-color: var(--green-deep); background-image: radial-gradient(circle at 100% 0%, rgba(120,190,150,.15), transparent 35%); color: #fff; }
+.values-dark .section-head h2 { color: var(--beige); }
+.value-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.value-cols > div { padding: 8px 36px; border-left: 1px solid rgba(205,182,138,.45); }
+.value-cols > div:first-child { padding-left: 0; border-left: 0; }
+.value-cols h3 { margin-bottom: 10px; font: 500 1.8rem/1.2 var(--serif); color: var(--beige); }
+.value-cols p { color: #DCE9E1; }
+
+/* ---------- Qualifikationen ---------- */
+.quals { padding: 80px var(--pad); background: var(--beige-dark); }
+.qual-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 48px; max-width: 60rem; }
+.qual-cols ul { list-style: none; margin: 0; padding: 0; }
+.qual-cols li { padding: 16px 0; border-bottom: 1px solid var(--gold-line); color: var(--ink); }
+.qual-cols li:first-child { border-top: 1px solid var(--gold-line); }
+
+/* ---------- Persönliches ---------- */
+.personal { display: grid; grid-template-columns: minmax(300px, 520px) minmax(320px, 520px); gap: 64px; align-items: center; justify-content: center; padding: 88px var(--pad); }
+.collage { position: relative; height: 420px; }
+.collage-a, .collage-b { position: absolute; background-size: cover; background-position: center; }
+.collage-a { inset: 0 auto auto 0; width: 55%; height: 78%; background-image: linear-gradient(160deg, var(--green-mid), #082B20); /* background-image: url("bild-1.jpg"); */ }
+.collage-b { inset: 18% 0 0 32%; background-image: linear-gradient(160deg, #E4D8BF, #C9B792); /* background-image: url("bild-2.jpg"); */ }
+.badge { position: absolute; right: 2%; top: 50%; width: 84px; height: 84px; display: grid; place-items: center; border-radius: 50%; background: var(--gold); color: #fff; box-shadow: 0 8px 24px rgba(11,61,46,.18); }
+.personal-text h2 { margin: 14px 0 20px; font: 400 clamp(2.2rem, 4vw, 3.1rem)/1.1 var(--serif); color: var(--green-deep); }
+.personal-text p:not(.eyebrow) { margin-bottom: 28px; color: var(--ink-soft); }
+blockquote { padding-left: 24px; border-left: 2px solid var(--gold-line); font: italic 400 1.6rem/1.35 var(--serif); color: var(--green-deep); }
+
+/* ---------- Abschluss ---------- */
+.cta { position: relative; overflow: hidden; text-align: center; padding: 88px var(--pad); background: var(--beige-dark); }
+.cta h2 { margin-bottom: 14px; font: 400 clamp(2.2rem, 4vw, 3.1rem)/1.1 var(--serif); color: var(--green-deep); }
+.cta p { max-width: 32rem; margin: 0 auto 28px; color: var(--ink-soft); }
+.cta > :not(.leaf-art) { position: relative; z-index: 1; }
+.leaf-art { position: absolute; right: 4%; top: 20px; width: 180px; height: 290px; fill: none; stroke: var(--gold-line); stroke-width: 1.2; stroke-linecap: round; opacity: .5; pointer-events: none; }
+
+/* ---------- Footer ---------- */
+.site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; padding: 32px var(--pad); background: var(--green-deep); color: #DCE9E1; font-size: .95rem; }
+.footer-logo { font: 500 1.4rem/1 var(--serif); letter-spacing: .12em; text-transform: uppercase; color: var(--beige); }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 24px; }
+.site-footer a:hover { color: #fff; }
+
+/* ---------- Mobil ---------- */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding-top: 56px; }
+  .hero-text { padding-bottom: 8px; }
+  .arch { height: 340px; }
+  .story-text { columns: 1; }
+  .timeline li { grid-template-columns: 1fr; gap: 2px; }
+  .value-cols > div { padding: 20px 0; border-left: 0; border-top: 1px solid rgba(205,182,138,.45); }
+  .value-cols > div:first-child { border-top: 0; padding-top: 0; }
+  .personal { grid-template-columns: 1fr; gap: 40px; }
+  .collage { max-width: 520px; width: 100%; margin-inline: auto; }
+  .leaf-art { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
